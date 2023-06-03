@@ -1,0 +1,52 @@
+<%- include('../partials/header.ejs') %>
+
+   <div class="row">
+    <div class="col-3 m-auto my-5">
+        LOGIN
+        <form class="my-3 needs-validation"  action="/login" method="post" novalidate>
+            <div class="form-floating mb-3">
+                <input name="username" type="email" class="form-control" id="email" placeholder="Email address" required> 
+                <label for="email">Email address</label>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please choose a valid email.
+                </div>
+              </div>
+              <div class="form-floating">
+                <input name="password" type="password" class="form-control" id="password" placeholder="Password" required>
+                <label for="password">Password</label>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="invalid-feedback">
+                    Please enter a password or valid password.
+                </div>
+              </div>
+            <button type="submit" class="btn btn-primary my-3" >Login</button>
+          </form>
+    </div>
+   </div>
+   <script>
+    (() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+   </script>
+
+<%- include('../partials/footer.ejs') %>
