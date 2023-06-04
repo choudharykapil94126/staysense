@@ -25,6 +25,7 @@ mongoose
     console.log('error');
 })
 
+
 // session setup
 const sessionPass = process.env.SESSION_PASS;
 
@@ -53,6 +54,7 @@ passport.deserializeUser(User.deserializeUser());
 //! server set and middlewares
 
 app.use(express.static(path.join(__dirname,'public'))); // static resources
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine' , 'ejs');// ejs extension
 app.use(methodOverride('_method')); // patch/delete requests)
 app.use(flash());
@@ -69,11 +71,17 @@ app.set('view engine' , 'ejs');
 
 // ! APIs
 
-const hotelRoutes = require('./routes/hotel')
-app.use(hotelRoutes);
+const hotelRoutes = require('./routes/hotels'),
+      authRoutes = require('./routes/auth'),
+      userRoutes = require('./routes/users'),
+      reviewRoutes = require('./routes/reviews');
 
-const authRoutes = require('./routes/auth');
+app.use(hotelRoutes);
 app.use(authRoutes);
+app.use(userRoutes);
+app.use(reviewRoutes);
+
+
 
 
 

@@ -16,7 +16,7 @@ router.post('/register' , async (req,res)=>{
             username: req.body.username
     });
     // hashing and salting and saving
-    let registerdUser = await User.register(newuser , req.body.password);
+    let registeredUser = await User.register(newuser , req.body.password);
     // saved user is not logged in 
     // passport -> cookied will automatically generate 
     req.login(registeredUser, (err)=>{
