@@ -3,7 +3,7 @@
    <div class="row">
     <div class="col-3 m-auto my-5">
         ADD A NEW HOTEL
-        <form class="my-3 needs-validation"  action="/hotels" method="post" novalidate>
+        <form class="my-3 needs-validation"  action="/hotels" method="post" enctype="multipart/form-data" novalidate>
             <div class="form-floating mb-3">
                 <input name="hotel[name]" type="text" class="form-control" id="name" placeholder="Hotels Name" required> 
                 <label for="name">Hotel Name</label>
@@ -35,14 +35,10 @@
                 </div>
                 </div>
                 <div class="form-floating mb-3">
-              <input name="hotel[image]" type="text" class="form-control" id="image" placeholder="Hotel Image" required> 
-                <label for="image">Hotel Image</label>
-                <div class="valid-feedback">
-                    Looks good!
-                </div>
-                <div class="invalid-feedback">
-                    Please enter a valid image address
-                </div>
+                    <div class="input-group mb-3">
+                        <input name="image" type="file" class="form-control" id="inputGroupFile02" multiple required>
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                      </div>
             </div>
                 
               

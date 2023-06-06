@@ -54,7 +54,7 @@ passport.deserializeUser(User.deserializeUser());
 //! server set and middlewares
 
 app.use(express.static(path.join(__dirname,'public'))); // static resources
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));// this line is use for data passing to the database
 app.set('view engine' , 'ejs');// ejs extension
 app.use(methodOverride('_method')); // patch/delete requests)
 app.use(flash());

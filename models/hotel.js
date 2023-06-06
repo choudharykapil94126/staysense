@@ -18,10 +18,6 @@ const hotelSchema = new mongoose.Schema({
         type : Boolean,
         default: true
     },
-    image : {
-        type: String,
-        requried: [true , 'Please add hotel image'],
-    },
     createdAt : {
         type : Date,
         default : Date.now()
@@ -30,6 +26,17 @@ const hotelSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
+    images: [{
+        url: String,
+        filename: String
+    }
+],
+    
+    overAllRating: {
+        type: Number,
+        default: 0
+    },
+    
     reviews : [
         {
             type: mongoose.Schema.Types.ObjectId,

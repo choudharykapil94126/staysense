@@ -46,7 +46,9 @@ router.post('/login' , passport.authenticate('local' , {
 }) ,  
     (req,res)=>{
         req.flash('success' , 'welcome back user');
-        res.redirect('/hotels');
+        let redirectUrl = req.session.returnTo || '/hotels';
+        delete req.session.returnTo;
+        res.redirect(redirectUrl);
 });
 
 router.get('/logout' , (req , res)=>{
